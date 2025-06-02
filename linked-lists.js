@@ -87,7 +87,8 @@ class LinkedList {
         let currentNode = this.head();
         let values = [];
         for (let i = 0; i < size; i++) {
-            values.push(`(${currentNode.value}) `);
+            const { key, value } = currentNode.value;
+            values.push(`(${key}: ${value}) `);
             currentNode = currentNode.nextNode;
         }
         return values.join("=> ");

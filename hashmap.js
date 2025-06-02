@@ -46,14 +46,13 @@ class HashMap {
         if (!this.hashMap[hashCode]) {
             this.hashMap[hashCode] = new LinkedList();
         }
-        this.hashMap[hashCode].append(value);
+        this.hashMap[hashCode].append({ key, value });
     }
 
     get(key) {
-        const hashCode = hash(key);
-        if (hashCode) {
-            return this.hashMap[hashCode];
-        }
+        const hashCode = this.hash(key);
+        const valueIndex = this.hashMap[hashCode].find(key);
+        return this.hashMap[hashCode];
     }
 
     outOfBoundsCheck(index) {
