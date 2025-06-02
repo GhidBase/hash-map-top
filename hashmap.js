@@ -1,9 +1,10 @@
-const { Node, LinkedList } = require('./linked-lists.js');
+const { Node, LinkedList } = require("./linked-lists.js");
 
 class HashMap {
     constructor() {
         this.capacity = 16;
         this.loadFactor;
+        this.threshold = 0.6;
         this.hashMap = new Array(this.capacity);
     }
 
@@ -32,6 +33,13 @@ class HashMap {
     }
 
     set(key, value) {
+        try {
+            this.outOfBoundsCheck();
+        } catch (err) {
+            console.error(`Caught error in set(key, value) ${err.message}`);
+            return;
+        }
+
         const hashCode = this.hash(key);
         // create something in the hashMap array
         if (!this.hashMap[hashCode]) {
@@ -39,9 +47,13 @@ class HashMap {
         }
         this.hashMap[hashCode].append(value);
     }
+
+    outOfBoundsCheck() {
+        if (index < 0 || index >= buckets.length) {
+            throw new Error("Trying to access index out of bounds");
+        }
+    }
 }
-
-
 
 const hashMap = new HashMap();
 
@@ -64,4 +76,4 @@ hashMap.set("fourteenth message", "Lucas Nguyen");
 hashMap.set("fifteenth message", "Isabella Wright");
 
 console.log(hashMap.length());
-console.log(hashMap.hashMap[8].toString())
+console.log(hashMap.hashMap[8].toString());
