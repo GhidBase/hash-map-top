@@ -53,7 +53,7 @@ class HashMap {
         try {
             this.outOfBoundsCheck(hashCode);
         } catch (err) {
-            console.error(`Caught error in set(key, value) ${err.message}`);
+            console.error(`Caught error in get(key, value) ${err.message}`);
             return;
         }
 
