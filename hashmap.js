@@ -33,14 +33,15 @@ class HashMap {
     }
 
     set(key, value) {
+        const hashCode = this.hash(key);
+
         try {
-            this.outOfBoundsCheck();
+            this.outOfBoundsCheck(hashCode);
         } catch (err) {
             console.error(`Caught error in set(key, value) ${err.message}`);
             return;
         }
 
-        const hashCode = this.hash(key);
         // create something in the hashMap array
         if (!this.hashMap[hashCode]) {
             this.hashMap[hashCode] = new LinkedList();
@@ -48,8 +49,15 @@ class HashMap {
         this.hashMap[hashCode].append(value);
     }
 
-    outOfBoundsCheck() {
-        if (index < 0 || index >= buckets.length) {
+    get(key) {
+        const hashCode = hash(key);
+        if (hashCode) {
+            return this.hashMap[hashCode];
+        }
+    }
+
+    outOfBoundsCheck(index) {
+        if (index < 0 || index >= this.hashMap.capacity) {
             throw new Error("Trying to access index out of bounds");
         }
     }
@@ -77,3 +85,5 @@ hashMap.set("fifteenth message", "Isabella Wright");
 
 console.log(hashMap.length());
 console.log(hashMap.hashMap[8].toString());
+
+// console.log(hashMap.get("fourteenth message"));
