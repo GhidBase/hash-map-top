@@ -3,7 +3,6 @@ class HashMap {
         this.capacity = 16;
         this.loadFactor;
         this.hashMap = new Array(this.capacity);
-        this.hashMap[1] = "test";
     }
 
     initializeHashMap() {}
@@ -31,9 +30,13 @@ class HashMap {
     }
 
     set(key, value) {
-        const hash = hash(key);
+        const hashCode = this.hash(key);
         // create something in the hashMap array
-        // but what do I create lol
+        if (!this.hashMap[hashCode]) {
+            this.hashMap[hashCode] = new LinkedList();
+            console.log(`Created new LinkedList at ${hashCode}`)
+        }
+        this.hashMap[hashCode].append(value);
     }
 }
 
@@ -257,7 +260,7 @@ class LinkedList {
 
 const hashMap = new HashMap();
 
-hashMap.hash("hey how are ya?");
-hashMap.hash("Vivian Simon");
+hashMap.set("first message", "hey how are ya?");
+hashMap.set("second message", "Vivian Simon");
 
 console.log(hashMap.length());
