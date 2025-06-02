@@ -139,7 +139,7 @@ class LinkedList {
         let size = this.size();
         let currentNode = this.head();
         for (let i = 0; i < size; i++) {
-            if (currentNode.value != null && currentNode.value == value) {
+            if (currentNode.value != null && currentNode.value.key == value) {
                 return i;
             }
 

@@ -50,9 +50,20 @@ class HashMap {
     }
 
     get(key) {
+        try {
+            this.outOfBoundsCheck(hashCode);
+        } catch (err) {
+            console.error(`Caught error in set(key, value) ${err.message}`);
+            return;
+        }
+
+        // go to the LinkedList at the hash index on the hashMap
+        // find the index of the desired key in that LinkedList
+        // use that index to return the value stored in that field
         const hashCode = this.hash(key);
         const valueIndex = this.hashMap[hashCode].find(key);
-        return this.hashMap[hashCode];
+        if (!valueIndex) return null;
+        return this.hashMap[hashCode].at(valueIndex).value.value;
     }
 
     outOfBoundsCheck(index) {
@@ -85,4 +96,4 @@ hashMap.set("fifteenth message", "Isabella Wright");
 console.log(hashMap.length());
 console.log(hashMap.hashMap[8].toString());
 
-// console.log(hashMap.get("fourteenth message"));
+console.log(hashMap.get("fifteenth message"));
