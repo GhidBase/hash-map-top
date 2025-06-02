@@ -1,7 +1,12 @@
 class HashMap {
     constructor() {
-        loadFactor;
-        capacity = 16;
+        this.capacity = 16;
+        this.loadFactor;
+        this.hashMap = new Array(5);
+    }
+
+    initializeHashMap() {
+
     }
 
     hash(key) {
@@ -15,3 +20,9 @@ class HashMap {
         return hashCode;
     }
 }
+
+
+const hashMap = new HashMap;
+
+console.log(hashMap.hash("hey how are ya?"))
+console.log(hashMap.hash("Vivian Simon"))
