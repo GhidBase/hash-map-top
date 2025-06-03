@@ -55,7 +55,7 @@ class HashMap {
         // use that index to return the value stored in that field
 
         const hashCode = this.hash(key);
-        
+
         try {
             this.outOfBoundsCheck(hashCode);
         } catch (err) {
@@ -67,6 +67,23 @@ class HashMap {
         const valueIndex = this.hashMap[hashCode].find(key);
         if (!valueIndex) return null;
         return this.hashMap[hashCode].at(valueIndex).value.value;
+    }
+
+    has(key) {
+        const hashCode = this.hash(key);
+
+        try {
+            this.outOfBoundsCheck(hashCode);
+        } catch (err) {
+            console.error(`Caught error in get(key, value) ${err.message}`);
+            return;
+        }
+
+        if (!this.hashMap[hashCode]) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     outOfBoundsCheck(index) {
@@ -99,4 +116,4 @@ hashMap.set("fifteenth message", "Isabella Wright");
 // console.log(hashMap.length());
 // console.log(hashMap.hashMap[8].toString());
 
-console.log(hashMap.get("fifteeenth message"));
+console.log(hashMap.has("fifteenth message"));
