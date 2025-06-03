@@ -138,6 +138,6 @@ hashMap.set("fifteenth message", "Isabella Wright");
 // console.log(hashMap.length());
 // console.log(hashMap.hashMap[8].toString());
 
-console.log(hashMap.has("fifteenth message"));
-hashMap.remove("fifteenth message");
-console.log(hashMap.has("fifteenth message"));
+console.log(hashMap.hashMap[hashMap.hash("fifteenth message")].toString());
+hashMap.remove("tenth message");
+console.log(hashMap.hashMap[hashMap.hash("fifteenth message")].toString());
