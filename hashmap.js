@@ -79,6 +79,26 @@ class HashMap {
             return;
         }
 
+        // If there's nothing in the array at the hash
+        // return false.
+        // If there is a LinkedList in the array at the hash,
+        // see if there's something in the LinkedList with the
+        // corresponding key
+        if (!this.hashMap[hashCode]) return false;
+        const valueIndex = this.hashMap[hashCode].find(key);
+        return valueIndex !== null;
+    }
+
+    remove(key) {
+        const hashCode = this.hash(key);
+
+        try {
+            this.outOfBoundsCheck(hashCode);
+        } catch (err) {
+            console.error(`Caught error in get(key, value) ${err.message}`);
+            return;
+        }
+
         if (!this.hashMap[hashCode]) {
             return false;
         } else {
@@ -116,4 +136,4 @@ hashMap.set("fifteenth message", "Isabella Wright");
 // console.log(hashMap.length());
 // console.log(hashMap.hashMap[8].toString());
 
-console.log(hashMap.has("fifteenth message"));
+hashMap.has("fifteeenth message");
