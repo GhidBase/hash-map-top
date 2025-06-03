@@ -50,6 +50,7 @@ class HashMap {
     }
 
     get(key) {
+        const hashCode = this.hash(key);
         try {
             this.outOfBoundsCheck(hashCode);
         } catch (err) {
@@ -60,7 +61,6 @@ class HashMap {
         // go to the LinkedList at the hash index on the hashMap
         // find the index of the desired key in that LinkedList
         // use that index to return the value stored in that field
-        const hashCode = this.hash(key);
         const valueIndex = this.hashMap[hashCode].find(key);
         if (!valueIndex) return null;
         return this.hashMap[hashCode].at(valueIndex).value.value;
