@@ -99,11 +99,13 @@ class HashMap {
             return;
         }
 
-        if (!this.hashMap[hashCode]) {
-            return false;
-        } else {
-            return true;
-        }
+        // if the given key is in the hashmap
+        // remove the entry with that key and
+        // return true
+        if (!this.has(key)) return false;
+        const keyIndex = this.hashMap[hashCode].find(key);
+        this.hashMap[hashCode].removeAt(keyIndex);
+        return true;
     }
 
     outOfBoundsCheck(index) {
@@ -136,4 +138,6 @@ hashMap.set("fifteenth message", "Isabella Wright");
 // console.log(hashMap.length());
 // console.log(hashMap.hashMap[8].toString());
 
-hashMap.has("fifteeenth message");
+console.log(hashMap.has("fifteenth message"));
+hashMap.remove("fifteenth message");
+console.log(hashMap.has("fifteenth message"));

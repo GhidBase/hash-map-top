@@ -209,8 +209,12 @@ class LinkedList {
         // Instead of originalNode.previousNode directly
         let originalPreviousNode = this.at(index - 1);
         let originalNextNode = this.at(index + 1);
-        originalNextNode.previousNode = originalPreviousNode;
-        originalPreviousNode.nextNode = originalNextNode;
+        if (originalNextNode !== null) {
+            originalNextNode.previousNode = originalPreviousNode;
+        }
+        if (originalPreviousNode !== null) {
+            originalPreviousNode.nextNode = originalNextNode;
+        }
         selectedNode.newNode = null;
         selectedNode.previousNode = null;
         this.listSize--;
