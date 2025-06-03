@@ -2,7 +2,8 @@ const { Node, LinkedList } = require("./linked-lists.js");
 
 class HashMap {
     constructor() {
-        this.capacity = 16;
+        this.defaultCapacity = 16;
+        this.capacity = this.defaultCapacity;
         this.loadFactor;
         this.threshold = 0.6;
         this.hashMap = new Array(this.capacity);
@@ -108,6 +109,10 @@ class HashMap {
         return true;
     }
 
+    clear() {
+        this.hashMap = new Array(this.defaultCapacity);
+    }
+
     outOfBoundsCheck(index) {
         if (index < 0 || index >= this.hashMap.capacity) {
             throw new Error("Trying to access index out of bounds");
@@ -141,3 +146,5 @@ hashMap.set("fifteenth message", "Isabella Wright");
 console.log(hashMap.hashMap[hashMap.hash("fifteenth message")].toString());
 hashMap.remove("tenth message");
 console.log(hashMap.hashMap[hashMap.hash("fifteenth message")].toString());
+hashMap.clear();
+console.log(hashMap.length());
