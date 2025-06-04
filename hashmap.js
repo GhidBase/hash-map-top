@@ -48,6 +48,21 @@ class HashMap {
             this.hashMap[hashCode] = new LinkedList();
         }
         this.hashMap[hashCode].append({ key, value });
+
+        const currentLength = this.length();
+        this.loadFactor = currentLength / this.capacity;
+        if (this.loadFactor > this.threshold) {
+            console.log("before capacity increase")
+            console.log(`used capacity: ${this.length()}`);
+            console.log(`hashmap capacity: ${this.capacity}`);
+            console.log(`load factor: ${this.checkLoadFactor()}\n`);
+        }
+        if (this.resize()) {
+            console.log("after capacity increase")
+            console.log(`used capacity: ${this.length()}`);
+            console.log(`hashmap capacity: ${this.capacity}`);
+            console.log(`load factor: ${this.checkLoadFactor()}`);
+        }
     }
 
     get(key) {
@@ -156,10 +171,6 @@ class HashMap {
         const currentLength = this.length();
         this.loadFactor = currentLength / this.capacity;
 
-        console.log(`used capacity: ${this.length()}`);
-        console.log(`hashmap capacity: ${this.capacity}`);
-        console.log(`load factor: ${this.checkLoadFactor()}\n`);
-
         if (this.loadFactor < this.threshold) return false;
 
         this.capacity *= 2;
@@ -171,9 +182,6 @@ class HashMap {
             this.set(entries[i][0], entries[i][1]);
         }
 
-        console.log(`used capacity: ${this.length()}`);
-        console.log(`hashmap capacity: ${this.capacity}`);
-        console.log(`load factor: ${this.checkLoadFactor()}\n`);
         return true;
     }
 
@@ -223,16 +231,16 @@ hashMap.set("twenty-seventh message", "Abigail Bennett");
 hashMap.set("twenty-eighth message", "Daniel Ross");
 hashMap.set("twenty-ninth message", "Ella Bailey");
 hashMap.set("thirtieth message", "Matthew Rivera");
+hashMap.set("twenty-eighth message", "OVERWRITE TEST");
 
 //#endregion
 
-// console.log(hashMap.entries());
-console.log(hashMap.resize());
+console.log(hashMap.entries());
 
 // console.log(hashMap.hashMap[2].toString());
 
 //#region 100 records
-hashMap.set("message 31", "Aria Morgan");
+/* hashMap.set("message 31", "Aria Morgan");
 hashMap.set("message 32", "Logan Jenkins");
 hashMap.set("message 33", "Chloe Barnes");
 hashMap.set("message 34", "Aiden Perry");
@@ -331,8 +339,6 @@ hashMap.set("message 126", "Parker Brady");
 hashMap.set("message 127", "Adeline Terry");
 hashMap.set("message 128", "Bryson Cain");
 hashMap.set("message 129", "Rylee Curtis");
-hashMap.set("message 130", "Everett Lindsey");
+hashMap.set("message 130", "Everett Lindsey"); */
 
 //#endregion
-
-console.log(hashMap.resize());
