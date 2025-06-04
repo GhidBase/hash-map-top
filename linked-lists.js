@@ -165,7 +165,27 @@ class LinkedList {
         let size = this.size();
         let currentNode = this.head();
         for (let i = 0; i < size; i++) {
-            if (currentNode.value != null && currentNode.value == value) {
+            if (currentNode.value != null && currentNode.value.value == value) {
+                return true;
+            }
+
+            currentNode = currentNode.nextNode;
+        }
+        return false;
+    }
+
+    containsKey(key) {
+        if (!this.listSize) {
+            /* console.error(
+                `containsKey(${key}): LinkedList is empty, cannot search for ${key}`
+            ); */
+            return false;
+        }
+
+        let size = this.size();
+        let currentNode = this.head();
+        for (let i = 0; i < size; i++) {
+            if (currentNode.key !== null && currentNode.value.key === key) {
                 return true;
             }
 
@@ -177,7 +197,7 @@ class LinkedList {
     find(value) {
         if (!this.listSize) {
             console.error(
-                `contains(): LinkedList is empty, cannot search for ${value}`
+                `find(): LinkedList is empty, cannot search for ${value}`
             );
         }
 
