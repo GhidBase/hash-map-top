@@ -215,9 +215,7 @@ class LinkedList {
 
     find(key) {
         if (!this.listSize) {
-            console.error(
-                `find(): LinkedList is empty, cannot search for ${value}`
-            );
+            return null;
         }
 
         let size = this.size();
@@ -305,4 +303,4 @@ class LinkedList {
     }
 }
 
-export { Node, LinkedList };
+module.exports = { Node, LinkedList };
