@@ -113,6 +113,54 @@ class HashMap {
         this.hashMap = new Array(this.defaultCapacity);
     }
 
+    keys() {
+        /*
+            Goal:
+            Return an Array containing all the keys
+            in the hashmap
+
+            Notes:
+             - I need to create an array
+             - I need to iterate through the hashmap
+             - As I iterate through I need to find all the keys
+             - This will require going into LinkedLists
+        */
+
+        // Iterate through the hashMap
+        const keys = [];
+        for (let i = 0; i < this.hashMap.length; i++) {
+            if (this.hashMap[i]) {
+                let linkedKeys = this.hashMap[i].keysToArray();
+                keys.push(...linkedKeys);
+            }
+        }
+        return keys;
+    }
+
+    values() {
+        /*
+            Goal:
+            Return an Array containing all the keys
+            in the hashmap
+
+            Notes:
+             - I need to create an array
+             - I need to iterate through the hashmap
+             - As I iterate through I need to find all the keys
+             - This will require going into LinkedLists
+        */
+
+        // Iterate through the hashMap
+        const keys = [];
+        for (let i = 0; i < this.hashMap.length; i++) {
+            if (this.hashMap[i]) {
+                let linkedValues = this.hashMap[i].valuesToArray();
+                keys.push(...linkedValues);
+            }
+        }
+        return keys;
+    }
+
     outOfBoundsCheck(index) {
         if (index < 0 || index >= this.hashMap.capacity) {
             throw new Error("Trying to access index out of bounds");
@@ -122,6 +170,7 @@ class HashMap {
 
 const hashMap = new HashMap();
 
+//#region fill the hashmap
 hashMap.set("first message", "hey how are ya?");
 hashMap.set("second message", "Vivian Simon");
 hashMap.set("first message", "Dylan Simon");
@@ -140,11 +189,6 @@ hashMap.set("thirteenth message", "Ava Patel");
 hashMap.set("fourteenth message", "Lucas Nguyen");
 hashMap.set("fifteenth message", "Isabella Wright");
 
-// console.log(hashMap.length());
-// console.log(hashMap.hashMap[8].toString());
+//#endregion
 
-console.log(hashMap.hashMap[hashMap.hash("fifteenth message")].toString());
-hashMap.remove("tenth message");
-console.log(hashMap.hashMap[hashMap.hash("fifteenth message")].toString());
-hashMap.clear();
-console.log(hashMap.length());
+console.log(hashMap.values());

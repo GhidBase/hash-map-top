@@ -94,6 +94,36 @@ class LinkedList {
         return values.join("=> ");
     }
 
+    keysToArray() {
+        if (this.listSize == 0) {
+            return "toArray(): LinkedList has 0 Nodes";
+        }
+        let size = this.size();
+        let currentNode = this.head();
+        let values = [];
+        for (let i = 0; i < size; i++) {
+            const { key, value } = currentNode.value;
+            values.push(key);
+            currentNode = currentNode.nextNode;
+        }
+        return values;
+    }
+
+    valuesToArray() {
+        if (this.listSize == 0) {
+            return "toArray(): LinkedList has 0 Nodes";
+        }
+        let size = this.size();
+        let currentNode = this.head();
+        let values = [];
+        for (let i = 0; i < size; i++) {
+            const { key, value } = currentNode.value;
+            values.push(value);
+            currentNode = currentNode.nextNode;
+        }
+        return values;
+    }
+
     pop() {
         if (!this.listSize) {
             console.error("pop(): LinkedList is empty, cannot pop");
