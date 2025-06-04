@@ -214,9 +214,9 @@ console.log("Get Alice_0:", test.get("Alice_0"));
 console.log("Has Luna_11:", test.has("Luna_11"));
 console.log("Remove Ethan_30:", test.remove("Ethan_30"));
 console.log("Has Ethan_30 after removal:", test.has("Ethan_30"));
-// console.log("All keys:", test.keys());
-// console.log("All values:", test.values());
-// console.log("All entries:", test.entries());
+console.log("All keys:", test.keys());
+console.log("All values:", test.values());
+console.log("All entries:", test.entries());
 test.clear();
 
 console.log("Entries after clear:", test.entries());
