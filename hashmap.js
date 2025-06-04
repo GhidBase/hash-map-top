@@ -146,6 +146,23 @@ class HashMap {
         return keys;
     }
 
+    resize() {
+        /*
+            GOAL: Double the size of this hashmap
+
+            NOTES:
+            Test the load factor
+            Check that against the threshold
+            Adjust the this.capacity field
+            
+        */
+
+        const currentLength = this.length();
+        this.loadFactor = currentLength / this.capacity;
+        console.log(this.loadFactor);
+        return this.loadFactor > this.threshold;
+    }
+
     outOfBoundsCheck(index) {
         if (index < 0 || index >= this.hashMap.capacity) {
             throw new Error("Trying to access index out of bounds");
@@ -177,3 +194,4 @@ hashMap.set("fifteenth message", "Isabella Wright");
 //#endregion
 
 console.log(hashMap.entries());
+console.log(hashMap.resize());
