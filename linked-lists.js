@@ -194,7 +194,7 @@ class LinkedList {
         return false;
     }
 
-    find(value) {
+    find(key) {
         if (!this.listSize) {
             console.error(
                 `find(): LinkedList is empty, cannot search for ${value}`
@@ -204,7 +204,7 @@ class LinkedList {
         let size = this.size();
         let currentNode = this.head();
         for (let i = 0; i < size; i++) {
-            if (currentNode.value != null && currentNode.value.key == value) {
+            if (currentNode.value != null && currentNode.value.key == key) {
                 return i;
             }
 
