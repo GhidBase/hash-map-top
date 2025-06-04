@@ -194,6 +194,25 @@ class LinkedList {
         return false;
     }
 
+    findValue(value) {
+        if (!this.listSize) {
+            console.error(
+                `find(): LinkedList is empty, cannot search for ${value}`
+            );
+        }
+
+        let size = this.size();
+        let currentNode = this.head();
+        for (let i = 0; i < size; i++) {
+            if (currentNode.value != null && currentNode.value.value == value) {
+                return i;
+            }
+
+            currentNode = currentNode.nextNode;
+        }
+        return null;
+    }
+
     find(key) {
         if (!this.listSize) {
             console.error(

@@ -48,7 +48,7 @@ class HashMap {
             this.hashMap[hashCode] = new LinkedList();
         }
         if (this.hashMap[hashCode].containsKey(key)) {
-            const linkedIndex = this.hashMap[hashCode].find(key)
+            const linkedIndex = this.hashMap[hashCode].find(key);
             this.hashMap[hashCode].at(linkedIndex).value.value = value;
             return true;
         }
@@ -86,7 +86,8 @@ class HashMap {
 
         if (!this.hashMap[hashCode]) return null;
         const valueIndex = this.hashMap[hashCode].find(key);
-        if (!valueIndex) return null;
+        console.log(valueIndex)
+        if (valueIndex === null) return null;
         return this.hashMap[hashCode].at(valueIndex).value.value;
     }
 
@@ -246,10 +247,8 @@ hashMap.set("twenty-eighth message", "OVERWRITE TEST");
 
 //#endregion
 
-// console.log(hashMap.get("twenty-eighth message"));
-
-console.log(hashMap.hashMap[hashMap.hash("twenty-eighth message")]);
-// console.log(hashMap.hashMap[2].toString());
+console.log(`\n\nget results: ${hashMap.get("first message")}`);
+console.log(hashMap.has("first message"));
 
 //#region 100 records
 /* hashMap.set("message 31", "Aria Morgan");
