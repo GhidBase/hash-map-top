@@ -48,7 +48,8 @@ class HashMap {
             this.hashMap[hashCode] = new LinkedList();
         }
         if (this.hashMap[hashCode].containsKey(key)) {
-            this.hashMap[hashCode].at(0).value.value = value;
+            const linkedIndex = this.hashMap[hashCode].find(key)
+            this.hashMap[hashCode].at(linkedIndex).value.value = value;
             return true;
         }
 
@@ -207,47 +208,47 @@ hashMap.set("first message", "hey how are ya?");
 hashMap.set("second message", "whaddup");
 hashMap.set("first message", "nothing much");
 
-console.log(hashMap.entries());
 // console.log(hashMap.get("first message"));
 
-// hashMap.set("first message", "hey how are ya?");
-// hashMap.set("second message", "Vivian Simon");
-// hashMap.set("first message", "Dylan Simon");
-// hashMap.set("second message", "Vivian Simon");
-// hashMap.set("third message", "Lena Simon");
-// hashMap.set("fourth message", "Jason Lee");
-// hashMap.set("fifth message", "Maria Chen");
-// hashMap.set("sixth message", "Alex Johnson");
-// hashMap.set("seventh message", "Emily Davis");
-// hashMap.set("eighth message", "Noah Brown");
-// hashMap.set("ninth message", "Olivia White");
-// hashMap.set("tenth message", "Liam Garcia");
-// hashMap.set("eleventh message", "Sophia Martinez");
-// hashMap.set("twelfth message", "Benjamin Kim");
-// hashMap.set("thirteenth message", "Ava Patel");
-// hashMap.set("fourteenth message", "Lucas Nguyen");
-// hashMap.set("fifteenth message", "Isabella Wright");
-// hashMap.set("sixteenth message", "Ethan Baker");
-// hashMap.set("seventeenth message", "Mia Turner");
-// hashMap.set("eighteenth message", "William Scott");
-// hashMap.set("nineteenth message", "Charlotte Rivera");
-// hashMap.set("twentieth message", "James Reed");
-// hashMap.set("twenty-first message", "Amelia Perez");
-// hashMap.set("twenty-second message", "Henry Cox");
-// hashMap.set("twenty-third message", "Harper Ward");
-// hashMap.set("twenty-fourth message", "Alexander Brooks");
-// hashMap.set("twenty-fifth message", "Evelyn Sanders");
-// hashMap.set("twenty-sixth message", "Michael Price");
-// hashMap.set("twenty-seventh message", "Abigail Bennett");
-// hashMap.set("twenty-eighth message", "Daniel Ross");
-// hashMap.set("twenty-ninth message", "Ella Bailey");
-// hashMap.set("thirtieth message", "Matthew Rivera");
-// hashMap.set("twenty-eighth message", "OVERWRITE TEST");
+hashMap.set("first message", "hey how are ya?");
+hashMap.set("second message", "Vivian Simon");
+hashMap.set("first message", "Dylan Simon");
+hashMap.set("second message", "Vivian Simon");
+hashMap.set("third message", "Lena Simon");
+hashMap.set("fourth message", "Jason Lee");
+hashMap.set("fifth message", "Maria Chen");
+hashMap.set("sixth message", "Alex Johnson");
+hashMap.set("seventh message", "Emily Davis");
+hashMap.set("eighth message", "Noah Brown");
+hashMap.set("ninth message", "Olivia White");
+hashMap.set("tenth message", "Liam Garcia");
+hashMap.set("eleventh message", "Sophia Martinez");
+hashMap.set("twelfth message", "Benjamin Kim");
+hashMap.set("thirteenth message", "Ava Patel");
+hashMap.set("fourteenth message", "Lucas Nguyen");
+hashMap.set("fifteenth message", "Isabella Wright");
+hashMap.set("sixteenth message", "Ethan Baker");
+hashMap.set("seventeenth message", "Mia Turner");
+hashMap.set("eighteenth message", "William Scott");
+hashMap.set("nineteenth message", "Charlotte Rivera");
+hashMap.set("twentieth message", "James Reed");
+hashMap.set("twenty-first message", "Amelia Perez");
+hashMap.set("twenty-second message", "Henry Cox");
+hashMap.set("twenty-third message", "Harper Ward");
+hashMap.set("twenty-fourth message", "Alexander Brooks");
+hashMap.set("twenty-fifth message", "Evelyn Sanders");
+hashMap.set("twenty-sixth message", "Michael Price");
+hashMap.set("twenty-seventh message", "Abigail Bennett");
+hashMap.set("twenty-eighth message", "Daniel Ross");
+hashMap.set("twenty-ninth message", "Ella Bailey");
+hashMap.set("thirtieth message", "Matthew Rivera");
+hashMap.set("twenty-eighth message", "OVERWRITE TEST");
 
 //#endregion
 
 // console.log(hashMap.get("twenty-eighth message"));
 
+console.log(hashMap.hashMap[hashMap.hash("twenty-eighth message")]);
 // console.log(hashMap.hashMap[2].toString());
 
 //#region 100 records
