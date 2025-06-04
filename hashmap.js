@@ -114,19 +114,6 @@ class HashMap {
     }
 
     keys() {
-        /*
-            Goal:
-            Return an Array containing all the keys
-            in the hashmap
-
-            Notes:
-             - I need to create an array
-             - I need to iterate through the hashmap
-             - As I iterate through I need to find all the keys
-             - This will require going into LinkedLists
-        */
-
-        // Iterate through the hashMap
         const keys = [];
         for (let i = 0; i < this.hashMap.length; i++) {
             if (this.hashMap[i]) {
@@ -138,24 +125,22 @@ class HashMap {
     }
 
     values() {
-        /*
-            Goal:
-            Return an Array containing all the keys
-            in the hashmap
-
-            Notes:
-             - I need to create an array
-             - I need to iterate through the hashmap
-             - As I iterate through I need to find all the keys
-             - This will require going into LinkedLists
-        */
-
-        // Iterate through the hashMap
         const keys = [];
         for (let i = 0; i < this.hashMap.length; i++) {
             if (this.hashMap[i]) {
                 let linkedValues = this.hashMap[i].valuesToArray();
                 keys.push(...linkedValues);
+            }
+        }
+        return keys;
+    }
+
+    entries() {
+        const keys = [];
+        for (let i = 0; i < this.hashMap.length; i++) {
+            if (this.hashMap[i]) {
+                let linkedObjects = this.hashMap[i].objectsToArray();
+                keys.push(...linkedObjects);
             }
         }
         return keys;
@@ -191,4 +176,4 @@ hashMap.set("fifteenth message", "Isabella Wright");
 
 //#endregion
 
-console.log(hashMap.values());
+console.log(hashMap.entries());
